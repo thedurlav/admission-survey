@@ -4,7 +4,8 @@ import toast from "react-hot-toast";
 
 const CLASSES = [
   "Nursery",
-  "KG",
+  "LKG",
+  "UKG",
   "1",
   "2",
   "3",
@@ -18,7 +19,7 @@ const CLASSES = [
   "11",
   "12",
 ];
-const MEDIUMS = ["Hindi", "English", "Urdu", "Marathi", "Other"];
+const MEDIUMS = ["Hindi", "English"];
 
 const initial = {
   childName: "",
@@ -139,7 +140,7 @@ export default function StudentForm({ onSuccess, onCancel }) {
             <option value="">Select class</option>
             {CLASSES.map((c) => (
               <option key={c} value={c}>
-                {c === "Nursery" || c === "KG" ? c : `Class ${c}`}
+                {["Nursery", "LKG", "UKG"].includes(c) ? c : `Class ${c}`}
               </option>
             ))}
           </select>
