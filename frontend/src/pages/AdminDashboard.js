@@ -47,6 +47,13 @@ export default function AdminDashboard() {
     }
   }, []);
 
+  // Load both on mount so surveyor count shows immediately on students tab
+  useEffect(() => {
+    loadStudents();
+    loadSurveyors();
+  }, [loadStudents, loadSurveyors]);
+
+  // Reload when switching tabs
   useEffect(() => {
     if (tab === "students") loadStudents();
     if (tab === "surveyors") loadSurveyors();
